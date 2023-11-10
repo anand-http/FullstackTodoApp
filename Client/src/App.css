@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    background-color: skyblue;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+
+
+.menu>a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+/* Login */
+
+.login,
+.register,
+.tasks {
+    display: flex;
+    background-color: rgb(218, 215, 215);
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login form,
+.register form,
+.tasks form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+
+}
+
+.login form>input,
+.register form>input,
+.tasks form>input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    min-width: 20vw;
+}
+
+.login form>button,
+.register form>button,
+.tasks form>button {
+    background-color: rgba(0, 0, 255, 0.715);
+    border: none;
+    outline: none;
+    padding: 13px;
+    width: auto;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.or>h3 {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.or>a {
+    text-decoration: none;
+    background-color: rgba(230, 9, 234, 0.715);
+    border: none;
+    outline: none;
+    padding: 13px;
+    width: 6vw;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+
+/* getTask */
+
+.getTask {
+    height: auto;
+    min-width: 50vw;
+    width: auto;
+    border-radius: 5px;
+    background-color: rgb(221, 64, 168);
+    margin: 20px 0;
+    color: white;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+h3 {
+    margin: 0;
+}
+
+.getTask-right>input {
+    transform: scale(2);
+
+}
+
+
+.getTask-right>button,
+.menu>button {
+    background-color: rgba(113, 11, 238, 0.775);
+    border: none;
+    outline: none;
+    padding: 13px;
+    width: auto;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 20px;
+
+}
+
+
+
+
+/* my profile  */
+
+.profile {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    background-color: aqua;
+    width: 40vw;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin: 90px auto;
+    padding: 20px;
+}
+
+
+
+/* media query */
+
+@media screen and (max-width:425px) {
+    .menu>a {
+        margin-right: 10px;
+        font-size: 15px;
+    }
+
+    .menu>button {
+        font-size: 10px;
+    }
+
+}
+@media screen and (max-width:768px) {
+   .getTask{
+    min-width: 80vw;
+   }
+
+}
