@@ -19,13 +19,10 @@ const App = () => {
 
   useEffect(() => {
 
-
     axios.get(`${server}/users/myprofile`, {
       withCredentials: true
     })
-      .then((res) => setUser(res.data.user), setIsAuthenticated(true), setTimeout(() => {
-        setIsAuthenticated(false);
-      }, 15 * 60 * 1000))
+      .then((res) => setUser(res.data.user), setIsAuthenticated(true))
       .catch((error) => console.log("error while fetching my profile ==> ", error.response.data.message));
 
 
@@ -37,7 +34,7 @@ const App = () => {
       <Routes>
 
         <Route path='/' element={isAuthenticated ? <Task /> : <Register />} />
-        <Route path='/login' element={!isAuthenticated ? <Login /> : <Navigate to='/' />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/myprofile' element={isAuthenticated ? <MyProfile user={user} /> : (<Navigate to="/" />)} />
 
       </Routes>
