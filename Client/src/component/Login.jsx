@@ -1,51 +1,49 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { server } from '../main';
 import { Context } from '../ContextApi';
 
 
-const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const { setIsAuthenticated, isAuthenticated, loading, setLoading } = useContext(Context);
-
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setLoading(true);
+const Login = ({handleLogin}) => {
+    const { email, setEmail, password, setPassword } = useContext(Context);
 
 
-        try {
+    // const { setIsAuthenticated, isAuthenticated, loading, setLoading } = useContext(Context);
+    const { loading } = useContext(Context);
 
-            const { data } = await axios.post(`${server}/users/login`, {
-                email, password
-            }, {
-                withCredentials: true
-            });
+    // const handleLogin = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     try {
 
-            console.log(data.message);
-            setEmail('');
-            setPassword("");
-            setIsAuthenticated(true);
+    //         const { data } = await axios.post(`${server}/users/login`, {
+    //             email, password
+    //         }, {
+    //             withCredentials: true
+    //         });
 
-            setLoading(false);
+    //         console.log(data.message);
+    //         setEmail('');
+    //         setPassword("");
+    //         await setIsAuthenticated(true);
 
+    //         setLoading(false);
 
+    //     } catch (error) {
+    //         console.log("Error while logging in ==> ", error.response.data.message);
+    //         alert(error.response.data.message);
+    //         setIsAuthenticated(false);
+    //         setLoading(false);
+    //     }
 
-        } catch (error) {
-            console.log("Error while logging in ==> ", error.response.data.message);
-            alert(error.response.data.message);
-            setIsAuthenticated(false);
-            setLoading(false);
-        }
+    // }
 
-    }
 
 
     return (
         <div className='login'>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={(e) => handleLogin(e)}>
                 <input type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button disabled={loading} >Login</button>

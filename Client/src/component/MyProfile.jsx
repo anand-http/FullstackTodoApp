@@ -1,6 +1,8 @@
 import React from 'react'
 
+
 const MyProfile = ({ user }) => {
+
   return (
     <div className="profile">
       <h1>User Id: {user?._id}</h1>
