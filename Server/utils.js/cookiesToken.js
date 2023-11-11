@@ -9,8 +9,8 @@ const cookieToken = (res, message, statusCode, user) => {
     res.status(statusCode).cookie("token", token, {
         httOnly: true,
         maxAge: 15 * 60 * 1000,
-        sameSite: "lax",
-        secure: false,
+        sameSite: "none",
+        secure: true,
     }).json({
         message,
 
